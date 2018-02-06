@@ -1,10 +1,10 @@
 import {TestBed, async, ComponentFixture} from '@angular/core/testing';
-import { FormsModule } from "@angular/forms";
-import { PaperPasswordComponent } from './paper-password.component';
+import {FormsModule} from "@angular/forms";
+import {PaperPasswordComponent} from './paper-password.component';
 import {MockTranslate} from "../../../../../test-mocks/translate-mock";
 
 function initializeControl(fixture: ComponentFixture<PaperPasswordComponent>){
-  var control = fixture.debugElement.componentInstance;
+  const control = fixture.debugElement.componentInstance;
   control.config = {
     name: "mockName",
     label: "mock-label",
@@ -76,7 +76,7 @@ describe('PaperPasswordComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     const input = compiled.querySelector('div>label+input');
 
-    expect(input.toString()).toContain('[object HTMLInputElement]');
+    expect(input.toString()).toBe('[object HTMLInputElement]');
   }));
 
   it(`should have a input of type password`, async(() => {
@@ -87,7 +87,7 @@ describe('PaperPasswordComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     const input = compiled.querySelector('div>label+input');
 
-    expect(input.type).toContain('password');
+    expect(input.type).toBe('password');
   }));
 
   it(`should have a input with class of 'form-control'`, async(() => {
@@ -109,7 +109,7 @@ describe('PaperPasswordComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     const input = compiled.querySelector('div>label+input');
 
-    expect(input.id).toContain('mockName');
+    expect(input.id).toBe('mockName');
   }));
 
   it(`should have a input with a translated placeholder`, async(() => {
@@ -120,7 +120,7 @@ describe('PaperPasswordComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     const input = compiled.querySelector('div>label+input');
 
-    expect(input.placeholder).toContain('mock-placeholder-translated');
+    expect(input.placeholder).toBe('mock-placeholder-translated');
   }));
 
   it(`should set input value from model`, async(() => {
@@ -131,7 +131,7 @@ describe('PaperPasswordComponent', () => {
     const input = compiled.querySelector('div>label+input');
 
     fixture.whenStable().then(() => {
-      expect(input.value).toContain('ModelMockValue');
+      expect(input.value).toBe('ModelMockValue');
     })
   }));
 
@@ -145,6 +145,6 @@ describe('PaperPasswordComponent', () => {
     input.value = 'test mock value';
     input.dispatchEvent(new Event('input'));
 
-    expect(control.model.mockName).toContain('test mock value');
+    expect(control.model.mockName).toBe('test mock value');
   }));
 });
