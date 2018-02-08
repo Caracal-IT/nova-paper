@@ -1,6 +1,6 @@
 ﻿import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
-import {TranslateModule} from "ng2-translate";
+import {TranslateLoader, TranslateModule, TranslateStaticLoader} from "ng2-translate";
 import {NgModule} from "@angular/core";
 
 
@@ -10,12 +10,17 @@ import {PaperInputComponent} from "./components/paper-input/paper-input.componen
 import {PaperPasswordComponent} from "./components/paper-password/paper-password.component";
 
 import {PaperButtonComponent} from "./components/paper-button/paper-button.component";
+import {Http} from "@angular/http";
+
+export function createTranslateLoader(http: Http){
+  return new TranslateStaticLoader(http,  './assets/i18n', '.json');
+}
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    TranslateModule
+    TranslateModule.forRoot()
   ],
   declarations: [
     PaperHeaderComponent,
