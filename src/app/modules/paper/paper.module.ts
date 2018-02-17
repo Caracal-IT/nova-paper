@@ -11,6 +11,7 @@ import {PaperPasswordComponent} from "./components/paper-password/paper-password
 
 import {PaperButtonComponent} from "./components/paper-button/paper-button.component";
 import {Http} from "@angular/http";
+import {PaperLabelComponent} from "./components/paper-label/paper-label.component";
 
 export function createTranslateLoader(http: Http){
   return new TranslateStaticLoader(http,  './assets/i18n', '.json');
@@ -25,6 +26,7 @@ export function createTranslateLoader(http: Http){
   declarations: [
     PaperHeaderComponent,
 
+    PaperLabelComponent,
     PaperInputComponent,
     PaperPasswordComponent,
 
@@ -33,6 +35,7 @@ export function createTranslateLoader(http: Http){
   entryComponents: [
     PaperHeaderComponent,
 
+    PaperLabelComponent,
     PaperInputComponent,
     PaperPasswordComponent,
 
@@ -44,6 +47,7 @@ export class PaperModule {
     let components = new Array<{ key: string, component: any }>();
 
     components.push({key: "paper-header", component: PaperHeaderComponent});
+    components.push({key: "paper-label", component: PaperLabelComponent});
 
     components.push({key: "paper-input", component: PaperInputComponent});
     components.push({key: "paper-password", component: PaperPasswordComponent});

@@ -3,7 +3,12 @@ import {Component } from '@angular/core';
 @Component({
   selector: 'paper-button',
   template: `
-      <button [class]='config.style' (click)="wf.next(config.nextActivity);">{{config.label|translate}}</button>
+      <button 
+        [id]="config.name" 
+        [class]='config.style' 
+        (click)="wf.next(config.nextActivity);">
+                {{config.label|translate}}
+      </button>
   `
 })
 export class PaperButtonComponent {
